@@ -1,0 +1,15 @@
+header {
+  justify-content: center;
+  width: 100vw;
+}
+
+.nav-container {
+  margin: 40px 0;
+  min-width: 1040px;
+}
+
+.nav {
+  justify-content: space-between;
+  background: $example;
+  width: 100%;
+}

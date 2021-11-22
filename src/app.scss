@@ -1,0 +1,20 @@
+@import "./Sass/Global/variables";
+@import "./Sass/Components/header";
+@import "./Sass/Pages/homePage";
+
+// Removes formatting and applies global font-styles
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  font-family: $font-primary;
+}
+
+// Applies flex to all element within root of body element
+#root * {
+  display: flex;
+}
+.App {
+  flex-direction: column;
+}
