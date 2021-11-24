@@ -1,0 +1,7 @@
+@mixin rounded() {
+  border: none;
+  border-radius: 13px;
+}
+@mixin hover() {
+  opacity: $hoverOpacity;
+}

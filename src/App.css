@@ -14,8 +14,71 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: red;
   width: 100%;
+}
+
+.nav .nav__logo {
+  font-weight: bold;
+  color: #9c69ff;
+}
+
+.nav-start {
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-links {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 25px;
+}
+
+.nav-links * {
+  color: #240066;
+}
+
+.nav-end {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3;
+      grid-template-columns: 3;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.nav__icon {
+  fill: #240066;
+  height: 1.2rem;
+  margin: 5px;
+}
+
+.navProfile-container {
+  margin-left: 5rem;
+}
+
+.navCart-container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 1rem;
+  background: #9c69ff;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  border: none;
+  border-radius: 13px;
+}
+
+.navCart-container span {
+  color: #fff;
 }
 
 *,
@@ -37,5 +100,10 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.clickable:hover {
+  cursor: pointer;
+  opacity: 70%;
 }
 /*# sourceMappingURL=app.css.map */
