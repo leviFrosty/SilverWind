@@ -6,7 +6,7 @@
 @import "./Sass/Pages/homePage";
 
 // Components
-@import "./Sass/Components/header";
+@import "./Sass/Components/nav";
 @import "./Sass/Components/hero";
 // Removes formatting and applies global flex and font-styles
 *,
@@ -33,7 +33,24 @@
   @include hover();
 }
 
-.container {
-  max-width: 1040px;
+.main {
+  width: 100%;
   justify-content: center;
+}
+.container {
+  max-width: $bodyDesktopWidth;
+}
+.button-primary {
+  @include rounded();
+  padding: 0.5rem 1rem;
+  background: $color-primary;
+  color: $text-white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.button-secondary {
+  @include rounded();
+  padding: 0.5rem 1rem;
+  background: $color-secondary;
+  color: $text-white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }

@@ -1,17 +1,25 @@
 import React from "react";
 import HeroHeartVid from "../Images/heroHeartVideo.gif";
+import { ReactComponent as Underline } from "../Images/heroUnderline.svg";
+import { ReactComponent as MagnifyingGlass } from "../Images/magnifyingGlass.svg";
 
 export default function Hero() {
   return (
     <div className="hero">
       <div className="hero-start">
-        <h1 className="hero__title">personalized handmade jewelry</h1>
+        <h1 className="hero__title">
+          personalized handmade
+          <span className="hero__pop">jewelry</span>
+        </h1>
+        <Underline />
+        <button className="hero__cta button-secondary clickable">
+          <MagnifyingGlass />
+          Shop Now
+        </button>
       </div>
       <div className="hero-end">
         <img className="hero__video" src={HeroHeartVid} alt="" />
-        <span className="hero__craftedby">
-          Designed and Crafted by Julia Hodory
-        </span>
+        <span className="hero__craftedby">Designed and Crafted by Julia</span>
       </div>
     </div>
   );

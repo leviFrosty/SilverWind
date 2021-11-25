@@ -7,7 +7,7 @@ header {
 
 .nav-container {
   margin: 40px 0;
-  min-width: 1040px;
+  min-width: 1140px;
 }
 
 .nav {
@@ -36,7 +36,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 25px;
+  gap: 40px;
 }
 
 .nav-links * {
@@ -81,13 +81,56 @@ header {
   color: #fff;
 }
 
+.hero {
+  margin-top: 8rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hero-start {
+  height: 100%;
+  width: 100%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .hero__title {
-  font-size: 4rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: rgba(36, 0, 102, 0.7);
+  font-size: 3.7rem;
   font-weight: 400;
-  letter-spacing: -0.15rem;
+  line-height: 5rem;
+}
+
+.hero__pop {
+  color: #240066;
+}
+
+.hero__cta {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.hero__cta :first-child {
+  margin-right: 0.5rem;
 }
 
 .hero-end {
+  height: 100%;
+  width: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -98,13 +141,19 @@ header {
   border: none;
   border-radius: 13px;
   overflow: hidden;
-  height: 400px;
+  height: 350px;
 }
 
 .hero__craftedby {
+  margin-top: 0.5rem;
+  color: rgba(36, 0, 102, 0.7);
+  font-weight: 700;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
+  opacity: 0.7;
+  font-size: 1.1rem;
+  letter-spacing: -0.05rem;
 }
 
 *,
@@ -134,10 +183,34 @@ header {
   opacity: 70%;
 }
 
-.container {
-  max-width: 1040px;
+.main {
+  width: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.container {
+  max-width: 1040px;
+}
+
+.button-primary {
+  border: none;
+  border-radius: 13px;
+  padding: 0.5rem 1rem;
+  background: #9c69ff;
+  color: #fff;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.button-secondary {
+  border: none;
+  border-radius: 13px;
+  padding: 0.5rem 1rem;
+  background: #240066;
+  color: #fff;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 /*# sourceMappingURL=app.css.map */
