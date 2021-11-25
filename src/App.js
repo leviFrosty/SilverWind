@@ -16,8 +16,8 @@ function App() {
       <section className="main">
         <HomePage />
       </section>
-      <Footer />
       <BlobEnd className="blobEnd" alt="" />
+      <Footer />
     </div>
   );
 }

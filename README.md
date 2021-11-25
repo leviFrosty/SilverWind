@@ -1,3 +1,6 @@
-# SilverWind Official Website
+# SilverWind Official Site
 
-Under Construction
+**Under Construction**
+I know... You want to buy all of the jewels. Sad.
+
+Give it time.

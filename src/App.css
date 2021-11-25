@@ -159,6 +159,20 @@ header {
   letter-spacing: -0.05rem;
 }
 
+.footer {
+  background: #240066;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.footer-container {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
 *,
 *::after,
 *::before {
