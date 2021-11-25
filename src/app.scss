@@ -22,6 +22,7 @@
 
 // App formatting
 .App {
+  position: relative;
   flex-direction: column;
   min-height: 100vh;
 }
@@ -53,4 +54,17 @@
   background: $color-secondary;
   color: $text-white;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+// Blob Styles
+
+.blobStart {
+  position: absolute;
+  left: -2%;
+  top: 2%;
+}
+.blobEnd {
+  position: absolute;
+  right: 0%;
+  bottom: 0%;
 }

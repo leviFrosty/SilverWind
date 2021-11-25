@@ -16,8 +16,9 @@ export default function Header() {
             <span className="nav__logo clickable">SilverWind</span>
           </div>
           <div className="nav-links">
-            <a className="clickable">categories</a>
+            <a className="clickable">about me</a>
             <a className="clickable">portfolio</a>
+            <a className="clickable">categories</a>
             <span>|</span>
             <a className="clickable">rings</a>
             <a className="clickable">necklaces</a>

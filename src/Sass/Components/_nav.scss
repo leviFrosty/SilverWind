@@ -18,16 +18,17 @@ header {
 }
 
 .nav-start {
-  width: 100%;
+  flex-grow: 3;
   align-items: center;
 }
 
 .nav-links {
-  width: 100%;
+  flex-grow: 2;
   display: grid;
   align-items: center;
   gap: 40px;
   * {
+    word-break: keep-all;
     color: $color-secondary;
   }
 }
@@ -38,17 +39,13 @@ header {
   grid-template-columns: 3;
   gap: 10px;
   align-items: center;
-  width: 100%;
+  flex-grow: 1;
 }
 
 .nav__icon {
   fill: $color-secondary;
   height: 1.2rem;
   margin: 5px;
-}
-
-.navProfile-container {
-  margin-left: 5rem;
 }
 
 .navCart-container {
