@@ -1,6 +1,11 @@
 # SilverWind Official Site
 
-**Under Construction**
-I know... You want to buy all of the jewels. Sad.
+_Under Construction_. I know... Sad.
 
-Give it time.
+#### Can't wait? Check out our pages below!
+
+[Etsy](https://www.etsy.com/shop/SSilverWind)
+
+[Instagram](https://www.instagram.com/silverwinds/)
+
+[Tiktok](https://www.tiktok.com/@silver.winds)
