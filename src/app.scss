@@ -7,7 +7,7 @@
 
 // Components
 @import "./Sass/Components/header";
-
+@import "./Sass/Components/hero";
 // Removes formatting and applies global flex and font-styles
 *,
 *::after,
@@ -23,6 +23,7 @@
 // App formatting
 .App {
   flex-direction: column;
+  min-height: 100vh;
 }
 
 // Global Styles
@@ -30,4 +31,9 @@
 .clickable:hover {
   cursor: pointer;
   @include hover();
+}
+
+.container {
+  max-width: 1040px;
+  justify-content: center;
 }

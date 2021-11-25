@@ -4,7 +4,6 @@ import { ReactComponent as HeartFull } from "../Images/heart-solid.svg";
 import { ReactComponent as ProfileIconEmpty } from "../Images/profileIcon.svg";
 import { ReactComponent as ProfileIconFull } from "../Images/user-circle-solid.svg";
 import { ReactComponent as Cart } from "../Images/cart.svg";
-import { NavLink } from "react-router-dom";
 
 export default function Header() {
   const [hoverHeart, setHoverHeart] = useState(false);

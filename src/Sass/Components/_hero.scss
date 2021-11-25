@@ -1,0 +1,19 @@
+.hero__title {
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: -0.15rem;
+}
+
+.hero-end {
+  flex-direction: column;
+}
+
+.hero__video {
+  @include rounded();
+  overflow: hidden;
+  height: 400px;
+}
+
+.hero__craftedby {
+  justify-content: end;
+}
