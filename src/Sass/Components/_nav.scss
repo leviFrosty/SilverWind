@@ -12,6 +12,7 @@ header {
   justify-content: space-between;
   width: 100%;
   .nav__logo {
+    text-decoration: none;
     font-weight: bold;
     color: $color-primary;
   }

@@ -4,6 +4,7 @@ import { ReactComponent as Underline } from "../Images/heroUnderline.svg";
 import { ReactComponent as MagnifyingGlass } from "../Images/magnifyingGlass.svg";
 import { collection, doc, getDoc, onSnapshot } from "@firebase/firestore";
 import { db } from "../fbInstance";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   useEffect(() => {
@@ -24,10 +25,10 @@ export default function Hero() {
           <span className="hero__pop">jewelry</span>
         </h1>
         <Underline />
-        <button className="hero__cta button-secondary clickable">
+        <Link to="/products" className="hero__cta button-secondary clickable">
           <MagnifyingGlass />
           Shop Now
-        </button>
+        </Link>
       </div>
       <div className="hero-end">
         <img className="hero__video" src={HeroHeartVid} alt="" />

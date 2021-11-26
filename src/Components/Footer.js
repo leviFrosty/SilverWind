@@ -36,8 +36,12 @@ export default function Footer() {
               <h6 className="footer__title">More from SilverWind</h6>
             </div>
             <div className="footer-socialsBottom">
-              <InstagramLogo className="clickable footer__socials" />
-              <TikTokLogo className="clickable footer__socials" />
+              <a href="https://www.instagram.com/silverwinds/" target="_blank">
+                <InstagramLogo className="clickable footer__socials" />
+              </a>
+              <a href="https://www.tiktok.com/@silver.winds" target="_blank">
+                <TikTokLogo className="clickable footer__socials" />
+              </a>
             </div>
           </div>
         </div>

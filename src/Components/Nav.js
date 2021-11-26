@@ -4,8 +4,9 @@ import { ReactComponent as HeartFull } from "../Images/heart-solid.svg";
 import { ReactComponent as ProfileIconEmpty } from "../Images/profileIcon.svg";
 import { ReactComponent as ProfileIconFull } from "../Images/user-circle-solid.svg";
 import { ReactComponent as Cart } from "../Images/cart.svg";
+import { Link, NavLink } from "react-router-dom";
 
-export default function Header() {
+export default function Nav() {
   const [hoverHeart, setHoverHeart] = useState(false);
   const [hoverProfile, setHoverProfile] = useState(false);
 
@@ -14,16 +15,30 @@ export default function Header() {
       <div className="nav-container">
         <div className="nav">
           <div className="nav-start">
-            <span className="nav__logo clickable">SilverWind</span>
+            <NavLink to="/" className="nav__logo clickable">
+              SilverWind
+            </NavLink>
           </div>
           <div className="nav-links">
-            <a className="clickable">about me</a>
-            <a className="clickable">portfolio</a>
-            <a className="clickable">categories</a>
+            <NavLink to="about-me" className="clickable">
+              about me
+            </NavLink>
+            <NavLink to="portfolio" className="clickable">
+              portfolio
+            </NavLink>
+            <NavLink to="products" className="clickable">
+              categories
+            </NavLink>
             <span>|</span>
-            <a className="clickable">rings</a>
-            <a className="clickable">necklaces</a>
-            <a className="clickable">earrings</a>
+            <NavLink to="rings" className="clickable">
+              rings
+            </NavLink>
+            <NavLink to="necklaces" className="clickable">
+              necklaces
+            </NavLink>
+            <NavLink to="earrings" className="clickable">
+              earrings
+            </NavLink>
           </div>
           <div className="nav-end">
             <div
@@ -31,47 +46,52 @@ export default function Header() {
               onMouseEnter={() => setHoverProfile(true)}
               onMouseLeave={() => setHoverProfile(false)}
             >
-              {hoverProfile ? (
-                <ProfileIconFull
-                  className="nav__icon"
-                  title="Profile"
-                  alt="Profile"
-                />
-              ) : (
-                <ProfileIconEmpty
-                  className="nav__icon nav__profile"
-                  title="Profile"
-                  alt="Profile"
-                />
-              )}
+              <Link to="/login">
+                {hoverProfile ? (
+                  <ProfileIconFull
+                    className="nav__icon"
+                    title="Profile"
+                    alt="Profile"
+                  />
+                ) : (
+                  <ProfileIconEmpty
+                    className="nav__icon nav__profile"
+                    title="Profile"
+                    alt="Profile"
+                  />
+                )}
+              </Link>
             </div>
             <div
               className="navHeart-container clickable"
               onMouseEnter={() => setHoverHeart(true)}
               onMouseLeave={() => setHoverHeart(false)}
             >
-              {hoverHeart ? (
-                <HeartFull
-                  className="nav__icon nav__heart"
-                  title="Likes"
-                  alt="Likes"
-                />
-              ) : (
-                <HeartEmpty
-                  className="nav__icon nav__heart"
-                  title="Likes"
-                  alt="Likes"
-                />
-              )}
+              <Link to="likes">
+                {hoverHeart ? (
+                  <HeartFull
+                    className="nav__icon nav__heart"
+                    title="Likes"
+                    alt="Likes"
+                  />
+                ) : (
+                  <HeartEmpty
+                    className="nav__icon nav__heart"
+                    title="Likes"
+                    alt="Likes"
+                  />
+                )}
+              </Link>
             </div>
-            <div
+            <Link
+              to="cart"
               className="navCart-container clickable"
               title="Cart"
               alt="Cart"
             >
               <span>Cart</span>
               <Cart className="nav__icon nav__cart" />
-            </div>
+            </Link>
           </div>
         </div>
       </div>

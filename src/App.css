@@ -1,3 +1,10 @@
+.homepage {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -18,6 +25,7 @@ header {
 }
 
 .nav .nav__logo {
+  text-decoration: none;
   font-weight: bold;
   color: #9c69ff;
 }
@@ -295,6 +303,10 @@ header {
   overflow: hidden;
 }
 
+.clickable {
+  text-decoration: none;
+}
+
 .clickable:hover {
   cursor: pointer;
   opacity: 70%;
@@ -333,6 +345,10 @@ header {
   color: #fff;
   -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
           box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.active {
+  font-weight: 600;
 }
 
 .blobStart {
