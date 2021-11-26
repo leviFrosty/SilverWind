@@ -26,6 +26,7 @@
   position: relative;
   flex-direction: column;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 // Global Styles
@@ -36,8 +37,10 @@
 }
 
 .main {
+  position: relative;
   width: 100%;
   justify-content: center;
+  flex-grow: 2;
 }
 .container {
   max-width: $bodyDesktopWidth;
@@ -62,10 +65,12 @@
 .blobStart {
   position: absolute;
   left: -2%;
-  top: 2%;
+  top: -22%;
+  height: 70%;
 }
 .blobEnd {
   position: absolute;
-  right: 0%;
-  bottom: 0%;
+  right: -1%;
+  bottom: -9%;
+  height: 70%;
 }

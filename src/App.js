@@ -21,12 +21,12 @@ function App() {
 
   return (
     <div className="App">
-      <BlobStart className="blobStart" alt="" />
       <Nav />
       <section className="main">
+        <BlobStart className="blobStart" alt="" />
         <HomePage />
+        <BlobEnd className="blobEnd" alt="" />
       </section>
-      <BlobEnd className="blobEnd" alt="" />
       <Footer />
     </div>
   );
