@@ -7,12 +7,10 @@ import { actionCreators } from "./state/index";
 import AppRouter from "./Router";
 
 function App() {
-  const authState = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const { updateUser } = bindActionCreators(actionCreators, dispatch);
   useEffect(() => {
     updateUser({ auth });
-    console.log(authState);
   }, []);
 
   return (

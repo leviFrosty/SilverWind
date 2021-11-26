@@ -5,6 +5,49 @@
           flex-direction: column;
 }
 
+.login {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login-title {
+  color: #240066;
+}
+
+.register {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 3rem 0;
+}
+
+.register-form {
+  width: 500px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.register-title {
+  color: #240066;
+}
+
+.register__description {
+  display: inline !important;
+  color: #240066;
+  overflow-wrap: break-word;
+}
+
+.register__legalLinks {
+  text-decoration: underline;
+  color: #240066;
+  display: inline !important;
+}
+
 header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -219,6 +262,10 @@ header {
   padding: 0.4rem 0;
 }
 
+.footer-main .footer__link {
+  color: #fff;
+}
+
 .footer-main .footer-end {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -303,15 +350,6 @@ header {
   overflow: hidden;
 }
 
-.clickable {
-  text-decoration: none;
-}
-
-.clickable:hover {
-  cursor: pointer;
-  opacity: 70%;
-}
-
 .main {
   position: relative;
   width: 100%;
@@ -321,6 +359,19 @@ header {
   -webkit-box-flex: 2;
       -ms-flex-positive: 2;
           flex-grow: 2;
+}
+
+.clickable {
+  text-decoration: none;
+}
+
+.clickable:hover {
+  cursor: pointer;
+  opacity: 70%;
+}
+
+.link {
+  text-decoration: none;
 }
 
 .container {

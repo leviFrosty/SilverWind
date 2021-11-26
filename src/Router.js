@@ -5,7 +5,7 @@ import { ReactComponent as BlobEnd } from "./Images/blobsEnd.svg";
 import Footer from "./Components/Footer";
 import HomePage from "./Pages/HomePage";
 import Nav from "./Components/Nav";
-import Register from "./Pages/Register";
+import Register from "./Pages/Profile/Register";
 import Login from "./Pages/Profile/Login";
 import Rings from "./Pages/Products/Rings";
 import Product from "./Pages/Products/Product";
@@ -23,6 +23,7 @@ import RequireAdmin from "./Pages/Admin/RequireAdmin";
 import Portfolio from "./Pages/Portfolio";
 import LikedProducts from "./Pages/LikedProducts";
 import Cart from "./Pages/Cart";
+import Welcome from "./Pages/Welcome";
 
 export default function AppRouter() {
   return (
@@ -42,6 +43,7 @@ export default function AppRouter() {
           <Route path="order-custom" element={<CustomForm />} />
           <Route path="about-me" element={<AboutMe />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="welcome" element={<Welcome />} />
 
           {/* Admin */}
           <Route path="admin" element={<RequireAdmin />}>

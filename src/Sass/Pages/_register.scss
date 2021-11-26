@@ -1,0 +1,24 @@
+.register {
+  flex-direction: column;
+  margin: 3rem 0;
+}
+
+.register-form {
+  width: 500px;
+  flex-direction: column;
+}
+
+.register-title {
+  color: $color-secondary;
+}
+
+.register__description {
+  display: inline !important;
+  color: $color-secondary;
+  overflow-wrap: break-word;
+}
+.register__legalLinks {
+  text-decoration: underline;
+  color: $color-secondary;
+  display: inline !important;
+}

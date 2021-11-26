@@ -4,7 +4,8 @@
 
 // Pages
 @import "./Sass/Pages/homePage";
-
+@import "./Sass/Pages/login";
+@import "./Sass/Pages/register";
 // Components
 @import "./Sass/Components/nav";
 @import "./Sass/Components/hero";
@@ -29,6 +30,13 @@
   overflow: hidden;
 }
 
+.main {
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  flex-grow: 2;
+}
+
 // Global Styles
 .clickable {
   text-decoration: none;
@@ -39,12 +47,10 @@
   @include hover();
 }
 
-.main {
-  position: relative;
-  width: 100%;
-  justify-content: center;
-  flex-grow: 2;
+.link {
+  text-decoration: none;
 }
+
 .container {
   max-width: $bodyDesktopWidth;
 }

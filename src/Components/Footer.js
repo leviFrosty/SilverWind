@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ReactComponent as InstagramLogo } from "../Images/instagram.svg";
 import { ReactComponent as TikTokLogo } from "../Images/tiktok.svg";
 
@@ -20,8 +21,17 @@ export default function Footer() {
             </ul>
             <ul>
               <li className=" footer__title">My Account</li>
-              <li className="clickable footer__li">Login</li>
-              <li className="clickable footer__li">Register</li>
+              <li className="clickable footer__li">
+                <Link className="link footer__link" to="/login">
+                  Login
+                </Link>
+              </li>
+              <li className="clickable footer__li">
+                {" "}
+                <Link className="link footer__link" to="/register">
+                  Register
+                </Link>
+              </li>
             </ul>
             <ul>
               <li className=" footer__title">Pages</li>
@@ -36,10 +46,18 @@ export default function Footer() {
               <h6 className="footer__title">More from SilverWind</h6>
             </div>
             <div className="footer-socialsBottom">
-              <a href="https://www.instagram.com/silverwinds/" target="_blank">
+              <a
+                href="https://www.instagram.com/silverwinds/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <InstagramLogo className="clickable footer__socials" />
               </a>
-              <a href="https://www.tiktok.com/@silver.winds" target="_blank">
+              <a
+                href="https://www.tiktok.com/@silver.winds"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <TikTokLogo className="clickable footer__socials" />
               </a>
             </div>
@@ -58,6 +76,7 @@ export default function Footer() {
               <a
                 href="https://github.com/leviFrosty/SilverWind/issues"
                 target="_blank"
+                rel="noreferrer"
                 className="clickable footerLegal__text footerLegal__li"
               >
                 Report a Problem with This Page
