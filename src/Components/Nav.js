@@ -8,6 +8,7 @@ import { ReactComponent as Cart } from "../Images/cart.svg";
 export default function Header() {
   const [hoverHeart, setHoverHeart] = useState(false);
   const [hoverProfile, setHoverProfile] = useState(false);
+
   return (
     <header>
       <div className="nav-container">

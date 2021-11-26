@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeroHeartVid from "../Images/heroHeartVideo.gif";
 import { ReactComponent as Underline } from "../Images/heroUnderline.svg";
 import { ReactComponent as MagnifyingGlass } from "../Images/magnifyingGlass.svg";
+import { collection, doc, getDoc, onSnapshot } from "@firebase/firestore";
+import { db } from "../fbInstance";
 
 export default function Hero() {
+  useEffect(() => {
+    const docArray = collection(db, "rings");
+    onSnapshot(docArray, (snapshot) => {
+      const docArray = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+    });
+  }, []);
+
   return (
     <div className="hero">
       <div className="hero-start">
