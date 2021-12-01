@@ -1,13 +1,12 @@
 import { createUserWithEmailAndPassword } from "@firebase/auth";
-import { addDoc, collection, doc, getDoc, setDoc } from "@firebase/firestore";
+import { doc, setDoc } from "@firebase/firestore";
 import { auth, db } from "./../../fbInstance";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { connect, useSelector } from "react-redux";
-import { updateUser } from "./../../state/actionCreators/index";
+import { updateUserData } from "./../../state/actionCreators/index";
 
-const Register = (props) => {
-  console.log(props);
+const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
@@ -150,19 +149,4 @@ const Register = (props) => {
     </div>
   );
 };
-
-const mapStateToProps = (state) => {
-  return {
-    userAuth: state.userAuth.auth,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updateUser: (userObj) => {
-      dispatch(updateUser(userObj));
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default Register;

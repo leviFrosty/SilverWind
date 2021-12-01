@@ -7,7 +7,7 @@ const reducer = (state = {}, action) => {
       return action.payload;
     case LOGOUT_USER: {
       auth.signOut().catch((e) => console.log(e));
-      return {};
+      return null;
     }
 
     default:

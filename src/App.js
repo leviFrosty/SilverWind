@@ -6,15 +6,7 @@ import AppRouter from "./Router";
 import { onAuthStateChanged } from "@firebase/auth";
 import { updateUser, signOutUser } from "./state/actionCreators/index";
 
-const App = ({ dispatchUpdateUser, dispatchSignoutUser }) => {
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      dispatchUpdateUser(user);
-    } else {
-      dispatchSignoutUser();
-    }
-  });
-
+const App = () => {
   return (
     <div className="App">
       <AppRouter />
@@ -22,11 +14,4 @@ const App = ({ dispatchUpdateUser, dispatchSignoutUser }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    dispatchUpdateUser: (user) => dispatch(updateUser(user)),
-    dispatchSignoutUser: () => dispatch(signOutUser()),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(App);
+export default App;

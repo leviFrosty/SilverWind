@@ -6,7 +6,6 @@ import {
   EMPTY_CART,
   LOGIN_USER,
   LOGOUT_USER,
-  UPDATE_USER_DATA,
 } from "../actionTypes";
 
 export const updateUser = (user) => {
@@ -22,15 +21,6 @@ export const signOutUser = () => {
   return (dispatch) => {
     dispatch({
       type: LOGOUT_USER,
-    });
-  };
-};
-
-export const updateUserData = (data) => {
-  return (dispatch) => {
-    dispatch({
-      type: UPDATE_USER_DATA,
-      payload: data,
     });
   };
 };
