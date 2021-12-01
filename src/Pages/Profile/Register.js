@@ -1,12 +1,13 @@
 import { createUserWithEmailAndPassword } from "@firebase/auth";
+import { addDoc, collection, doc, getDoc, setDoc } from "@firebase/firestore";
+import { auth, db } from "./../../fbInstance";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth, db } from "./../../fbInstance";
+import { connect, useSelector } from "react-redux";
 import { updateUser } from "./../../state/actionCreators/index";
-import { useSelector } from "react-redux";
-import { addDoc, collection, doc, getDoc, setDoc } from "@firebase/firestore";
 
-export default function Register() {
+const Register = (props) => {
+  console.log(props);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [gender, setGender] = useState("");
@@ -51,7 +52,7 @@ export default function Register() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        updateUser(user);
+        // Adds user document for extra user data in Firebase.
         const docData = {
           firstName,
           lastName,
@@ -148,4 +149,20 @@ export default function Register() {
       </p>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state) => {
+  return {
+    userAuth: state.userAuth.auth,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateUser: (userObj) => {
+      dispatch(updateUser(userObj));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

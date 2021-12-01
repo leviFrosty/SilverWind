@@ -4,10 +4,12 @@ import { auth } from "./../../fbInstance";
 const reducer = (state = {}, action) => {
   switch (action.type) {
     case LOGIN_USER:
-      return action.payload.auth;
-    case LOGOUT_USER:
+      return action.payload;
+    case LOGOUT_USER: {
       auth.signOut().catch((e) => console.log(e));
       return {};
+    }
+
     default:
       return state;
   }

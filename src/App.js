@@ -1,23 +1,32 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { auth } from "./fbInstance";
 import "./app.css";
-import { useSelector, useDispatch } from "react-redux";
-import { bindActionCreators } from "redux";
-import { actionCreators } from "./state/index";
+import { connect } from "react-redux";
 import AppRouter from "./Router";
+import { onAuthStateChanged } from "@firebase/auth";
+import { updateUser, signOutUser } from "./state/actionCreators/index";
 
-function App() {
-  const dispatch = useDispatch();
-  const { updateUser } = bindActionCreators(actionCreators, dispatch);
-  useEffect(() => {
-    updateUser({ auth });
-  }, []);
+const App = ({ dispatchUpdateUser, dispatchSignoutUser }) => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      dispatchUpdateUser(user);
+    } else {
+      dispatchSignoutUser();
+    }
+  });
 
   return (
     <div className="App">
       <AppRouter />
     </div>
   );
-}
+};
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatchUpdateUser: (user) => dispatch(updateUser(user)),
+    dispatchSignoutUser: () => dispatch(signOutUser()),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(App);

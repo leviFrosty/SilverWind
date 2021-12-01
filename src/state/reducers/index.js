@@ -4,8 +4,9 @@ import userDataReducer from "./userDataReducer";
 import cartReducer from "./cartReducer";
 
 const reducers = combineReducers({
-  auth: authReducer,
+  userAuth: authReducer,
   cart: cartReducer,
+  userData: userDataReducer,
 });
 
 export default reducers;

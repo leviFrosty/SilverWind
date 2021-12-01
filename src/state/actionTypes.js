@@ -8,3 +8,7 @@ export const EMPTY_CART = "EMPTY_CART";
 // User / Auth
 export const LOGIN_USER = "LOGIN_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
+
+// UserData
+export const REMOVE_USER_DATA = "REMOVE_USER_DATA";
+export const UPDATE_USER_DATA = "UPDATE_USER_DATA";

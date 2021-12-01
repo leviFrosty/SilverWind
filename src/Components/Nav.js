@@ -46,7 +46,7 @@ export default function Nav() {
               onMouseEnter={() => setHoverProfile(true)}
               onMouseLeave={() => setHoverProfile(false)}
             >
-              <Link to="/login">
+              <Link to="/profile">
                 {hoverProfile ? (
                   <ProfileIconFull
                     className="nav__icon"
