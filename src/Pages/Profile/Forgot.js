@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 export default function Forgot() {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+  const FORGOT_SUBMITTED_URL = "/forgot/submitted";
   const handleEmailChange = (event) => {
     const {
       target: { value },
@@ -18,9 +19,9 @@ export default function Forgot() {
     e.preventDefault();
     await sendPasswordResetEmail(auth, email)
       .then(() => {
-        navigate("/forgot/submitted");
+        navigate(FORGOT_SUBMITTED_URL, { replace: true });
       })
-      .catch((e) => navigate("/forgot/submitted"));
+      .catch((e) => navigate(FORGOT_SUBMITTED_URL, { replace: true }));
   };
 
   return (
