@@ -4,6 +4,7 @@ import { doc, onSnapshot } from "@firebase/firestore";
 import { db } from "../../fbInstance";
 import { signOut } from "@firebase/auth";
 import { auth } from "./../../fbInstance";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   const [userData, setuserData] = useState({});
@@ -31,11 +32,12 @@ export default function Profile() {
 
   const handleSignOut = () => {
     signOut(auth);
-    user = auth.currentUser;
+    navigate(-1, { replace: true });
   };
 
   return (
     <div>
+      <button onClick={() => navigate(-1)}>Take me Back</button>
       <h1>Hello {userData.firstName}</h1>
       <button onClick={handleSignOut}>Sign Out</button>
     </div>
