@@ -7,13 +7,15 @@ import { auth } from "./../../fbInstance";
 
 export default function Profile() {
   const [userData, setuserData] = useState({});
-  const user = auth.currentUser;
   let navigate = useNavigate();
+  let user = auth.currentUser;
 
-  const handleRedirect = () => {
+  const handleUserValidation = () => {
     if (user === null) {
-      navigate("/login");
+      navigate("/login", { replace: true });
+      return;
     }
+    getUserData();
   };
 
   const getUserData = () => {
@@ -23,21 +25,13 @@ export default function Profile() {
     });
   };
 
-  // const currentUser = auth.currentUser;
-  // const userDocRef = doc(db, "users", auth.currentUser.uid);
-  // onSnapshot(userDocRef, (doc) => {
-  //   const data = doc.data();
-  //   updateUserData(data);
-  //   console.log(doc.data());
-  // });
-
   useEffect(() => {
-    handleRedirect();
-    getUserData();
+    handleUserValidation();
   }, [user]);
 
   const handleSignOut = () => {
     signOut(auth);
+    user = auth.currentUser;
   };
 
   return (
