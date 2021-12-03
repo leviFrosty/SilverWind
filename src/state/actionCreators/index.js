@@ -9,19 +9,14 @@ import {
 } from "../actionTypes";
 
 export const updateUser = (user) => {
-  return (dispatch) => {
-    dispatch({
-      type: LOGIN_USER,
-      payload: user,
-    });
+  return {
+    type: LOGIN_USER,
+    payload: user,
   };
 };
-
 export const signOutUser = () => {
-  return (dispatch) => {
-    dispatch({
-      type: LOGOUT_USER,
-    });
+  return {
+    type: LOGOUT_USER,
   };
 };
 
