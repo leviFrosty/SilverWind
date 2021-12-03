@@ -6,6 +6,8 @@
 @import "./Sass/Pages/homePage";
 @import "./Sass/Pages/login";
 @import "./Sass/Pages/register";
+@import "./Sass/Pages/AdminDashboard";
+@import "./Sass/Pages/RequireAdmin";
 // Components
 @import "./Sass/Components/nav";
 @import "./Sass/Components/hero";
@@ -38,6 +40,10 @@
 }
 
 // Global Styles
+.full-screen-height {
+  height: 100vh;
+}
+
 .clickable {
   text-decoration: none;
 }

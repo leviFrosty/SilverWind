@@ -26,6 +26,7 @@ import Cart from "./Pages/Cart";
 import Welcome from "./Pages/Welcome";
 import Forgot from "./Pages/Profile/Forgot";
 import ForgotSubmitted from "./Pages/Profile/ForgotSubmitted";
+import AdminDashboard from "./Pages/Admin/AdminDashboard";
 
 export default function AppRouter() {
   return (
@@ -56,7 +57,7 @@ export default function AppRouter() {
 
           {/* Admin */}
           <Route path="admin" element={<RequireAdmin />}>
-            <Route path="add-product" element={<AddProduct />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
           </Route>
           {/* End Admin */}
 

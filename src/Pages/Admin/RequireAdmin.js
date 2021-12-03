@@ -1,23 +1,22 @@
 import { doc, getDoc } from "@firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import { db } from "../../fbInstance";
 
 export default function RequireAdmin() {
   const uid = useSelector((state) => state.userAuth.uid);
   let navigate = useNavigate();
 
-  const handleUserDataFetch = async () => {
-    if (!uid) navigate(-1, { replace: true });
+  const validateAdmin = async () => {
     let docRef = await doc(db, "users", uid);
     await getDoc(docRef)
       .then((doc) => {
         const userData = doc.data();
         if (userData.isAdmin) {
-          return console.log("user is admin");
+          return navigate("dashboard", { replace: true });
         }
-        return console.log("user is not admin");
+        return navigate("/", { replace: true });
       })
       .catch((e) => {
         console.log(e);
@@ -26,8 +25,12 @@ export default function RequireAdmin() {
 
   useEffect(() => {
     if (uid) {
-      handleUserDataFetch();
+      validateAdmin();
     }
   }, [uid]);
-  return <></>;
+  return (
+    <div className="admin">
+      <Outlet />
+    </div>
+  );
 }

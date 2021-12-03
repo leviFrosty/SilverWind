@@ -32,7 +32,7 @@ export default function Profile() {
 
   const handleSignOut = () => {
     signOut(auth);
-    navigate(-1, { replace: true });
+    navigate("/login");
   };
 
   return (
