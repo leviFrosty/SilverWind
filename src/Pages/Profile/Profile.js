@@ -5,6 +5,7 @@ import { db } from "../../fbInstance";
 import { signOut } from "@firebase/auth";
 import { auth } from "./../../fbInstance";
 import { Link } from "react-router-dom";
+import Spinner from "../../Components/Spinner";
 
 export default function Profile() {
   const [userData, setuserData] = useState({});
@@ -39,7 +40,9 @@ export default function Profile() {
     <div>
       <button onClick={() => navigate(-1)}>Take me Back</button>
       <h1>Hello {userData.firstName}</h1>
-      {userData.isAdmin ? <Link to="/admin">Admin Portal</Link> : null}
+      {userData.isAdmin ? (
+        <Link to="/admin/dashboard">Admin Portal</Link>
+      ) : null}
       <button onClick={handleSignOut}>Sign Out</button>
     </div>
   );

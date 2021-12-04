@@ -1,4 +1,9 @@
-// .admin {
-//   height: 100%;
-//   width: 100%;
-// }
+.admin {
+  min-width: 1040px;
+  justify-content: center;
+}
+.admin-spinner {
+  overflow: hidden;
+  align-items: center;
+  height: 100px;
+}

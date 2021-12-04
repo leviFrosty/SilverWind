@@ -1,4 +1,7 @@
 .admin-dashboard {
-  background: gold;
-  height: 100vh;
+  flex-direction: column;
+}
+
+.admin-products {
+  flex-direction: column;
 }

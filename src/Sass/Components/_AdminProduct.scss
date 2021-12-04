@@ -1,0 +1,10 @@
+.admin-product {
+  max-height: 10rem;
+  flex-direction: row;
+  align-items: center;
+}
+
+.admin-product__coverImg {
+  width: 6rem;
+  object-fit: scale-down;
+}

@@ -16,7 +16,7 @@ import CustomForm from "./Pages/CustomForm";
 import Bracelets from "./Pages/Products/Bracelets";
 import AboutMe from "./Pages/AboutMe";
 import Categories from "./Pages/Products/Categories";
-import AddProduct from "./Pages/Admin/AddProduct";
+import AddProduct from "./Components/AddProduct";
 import Profile from "./Pages/Profile/Profile";
 import EditProfile from "./Pages/Profile/EditProfile";
 import RequireAdmin from "./Pages/Admin/RequireAdmin";
@@ -57,7 +57,9 @@ export default function AppRouter() {
 
           {/* Admin */}
           <Route path="admin" element={<RequireAdmin />}>
-            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="dashboard" element={<AdminDashboard />}>
+              <Route path="add" element={<AddProduct />} />
+            </Route>
           </Route>
           {/* End Admin */}
 
