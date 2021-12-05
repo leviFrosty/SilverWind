@@ -1,9 +1,49 @@
 .add-product {
   flex-direction: column;
-  background: gold;
+  padding: 1rem;
+  @include rounded();
+  margin: 1rem 0;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
-.add-product__end {
-  form {
-    flex-direction: column;
+
+.add-product-start {
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  h1 {
+    color: $color-secondary;
   }
+  button {
+    align-items: center;
+    @include rounded();
+  }
+}
+
+.add-product-end {
+  form {
+    width: 100%;
+    flex-direction: column;
+    label {
+      font-size: 1.2rem;
+      color: $color-secondary;
+    }
+    input,
+    textarea,
+    select {
+      @include rounded();
+      padding: 0.5rem;
+      border: 1px solid #333;
+    }
+
+    #add-product__submit {
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+  }
+}
+
+.add-product__spinner {
+  height: 50px;
+  width: 50px;
 }

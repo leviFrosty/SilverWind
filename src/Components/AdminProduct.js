@@ -1,10 +1,17 @@
+import { deleteObject, ref } from "@firebase/storage";
 import React from "react";
+import { storage } from "../fbInstance";
 
 export default function AdminProduct({ product }) {
-  console.log("adminproduct:", product.name);
-
-  const handleDeleteProduct = (id) => {
-    console.log("deleting...", id);
+  // TODO: Add admin product editing
+  // TOOD: add product delete with storage/ product doc cleanup
+  const handleDeleteProduct = async () => {
+    // await deleteObject(ref(storage, attachmentURL));
+    product.otherImagesURLs.foreach(async (url) => {
+      await deleteObject(ref(storage, url))
+        .then(() => console.log("product deleted:", url))
+        .catch((e) => console.log(e));
+    });
   };
 
   return (
@@ -13,8 +20,9 @@ export default function AdminProduct({ product }) {
       <h2>{product.name}</h2>
       <p>{product.description}</p>
       <span>{product.price}</span>
+      <span>{product.quantity}</span>
       <button>Edit</button>
-      <button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
+      <button onClick={() => handleDeleteProduct}>Delete</button>
     </div>
   );
 }

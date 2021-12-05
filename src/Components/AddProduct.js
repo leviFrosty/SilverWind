@@ -1,25 +1,36 @@
 import { addDoc, collection } from "@firebase/firestore";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import { db } from "../fbInstance";
+import { db, storage } from "../fbInstance";
 import { v4 as uuidv4 } from "uuid";
 import Spinner from "./Spinner";
+import { useSelector } from "react-redux";
+import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 
 export default function AddProduct() {
   const [name, setname] = useState("");
+  const [material, setMaterial] = useState("");
   const [description, setdescription] = useState("");
   const [price, setprice] = useState(0);
+  const [quantity, setquantity] = useState(0);
   const [coverImage, setcoverImage] = useState("");
   const [processesing, setprocessing] = useState(false);
   const [otherImages, setotherImages] = useState([]);
   const [category, setcategory] = useState("");
   const navigate = useNavigate();
+  const user = useSelector((state) => state.userAuth);
 
   const handleNameChange = (e) => {
     const {
       target: { value },
     } = e;
     setname(value);
+  };
+  const handleMaterialChange = (e) => {
+    const {
+      target: { value },
+    } = e;
+    setMaterial(value);
   };
   const handleDescriptionChange = (e) => {
     const {
@@ -33,6 +44,12 @@ export default function AddProduct() {
     } = e;
     setprice(value);
   };
+  const handleQuantityChange = (e) => {
+    const {
+      target: { value },
+    } = e;
+    setquantity(value);
+  };
 
   const handleCategoryChange = (e) => {
     const {
@@ -41,27 +58,69 @@ export default function AddProduct() {
     setcategory(value);
   };
 
-  // const handleOtherImagesChange = (e) => {
-  //   const {
-  //     target: { files },
-  //   } = e;
-  //   setotherImages([...files]);
-  // };
-
   const productData = {
     active: true,
     name,
     description,
     price,
+    material,
     category,
+    quantity,
     createdAt: Date.now(),
     id: uuidv4(),
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const ref = collection(db, "products");
-    addDoc(ref, productData);
+    setprocessing(true);
+    const dbRef = collection(db, "products");
+
+    // Upload Cover Img
+    const coverRef = await ref(
+      storage,
+      `products/${productData.name}-${uuidv4()}`
+    );
+    let coverPhotoURL = "";
+    await uploadString(coverRef, coverImage, "data_url")
+      .then(async () => (coverPhotoURL = await getDownloadURL(coverRef)))
+      .catch((e) => console.log(e));
+
+    let otherImagesURLs = [];
+    for (const image of otherImages) {
+      const imgRef = await ref(
+        storage,
+        `products/${productData.name}-${uuidv4()}`
+      );
+      await uploadString(imgRef, image, "data_url");
+      const url = await getDownloadURL(imgRef);
+      otherImagesURLs = [url, ...otherImagesURLs];
+    }
+    const newProductData = {
+      coverPhotoURL,
+      otherImagesURLs,
+      ...productData,
+    };
+    addDoc(dbRef, newProductData)
+      .catch((e) => console.log(e))
+      .then(() => {
+        setprocessing(false);
+        handleClearInputs();
+      });
+  };
+
+  const handleClearInputs = () => {
+    const otherimgsInput = document.querySelector("#otherImgs");
+    const coverimgInput = document.querySelector("#otherImgs");
+    otherimgsInput.value = null;
+    coverimgInput.value = null;
+    setname("");
+    setdescription("");
+    setcoverImage("");
+    setotherImages([]);
+    setprice("");
+    setcategory("");
+    setquantity(0);
+    setMaterial("");
   };
 
   const handleCoverChange = async (event) => {
@@ -96,22 +155,31 @@ export default function AddProduct() {
         } = finishedEvent;
         results.push(result);
         setprocessing(false);
-        console.log(otherImages);
       };
-      // reader.onprogress = (progress) => {
-      //   setprocessing(true);
-      // };
+      reader.onprogress = () => {
+        setprocessing(true);
+      };
     });
-    // TODO: Add image uploading and adding images to state
+    setotherImages(results);
   };
 
   return (
     <div className="add-product">
-      <div className="add-product__start">
-        <h1>Add a product</h1>
-        <button onClick={() => navigate(-1, { replace: true })}>Close</button>
+      <div className="add-product-start">
+        <h1 className="add-product__title">Add a product</h1>
+        <button
+          className="button-secondary-outline clickable"
+          onClick={() => navigate("/admin/dashboard", { replace: true })}
+        >
+          Close
+        </button>
+        {processesing && (
+          <span className="add-product__spinner">
+            <Spinner />
+          </span>
+        )}
       </div>
-      <div className="add-product__end">
+      <div className="add-product-end">
         <form onSubmit={handleSubmit}>
           <label htmlFor="title">Name</label>
           <input
@@ -120,6 +188,14 @@ export default function AddProduct() {
             required
             value={name}
             onChange={handleNameChange}
+          />
+          <label htmlFor="material">Material</label>
+          <input
+            type="text"
+            id="material"
+            required
+            value={material}
+            onChange={handleMaterialChange}
           />
 
           <label htmlFor="description">Description</label>
@@ -132,16 +208,20 @@ export default function AddProduct() {
           />
 
           <label htmlFor="coverImg">Cover Image</label>
-          {processesing && (
-            <span>
-              <Spinner />
-            </span>
-          )}
+
           <input
             type="file"
             id="coverImg"
             required
             onChange={handleCoverChange}
+          />
+
+          <label htmlFor="otherImgs">Additional Images</label>
+          <input
+            type="file"
+            id="otherImgs"
+            multiple
+            onChange={handleOtherImagesChange}
           />
 
           <label htmlFor="category">Category</label>
@@ -159,24 +239,32 @@ export default function AddProduct() {
             <option>bracelets</option>
           </select>
 
-          <label htmlFor="otherImgs">Additional Images</label>
-          <input
-            type="file"
-            id="otherImgs"
-            multiple
-            onChange={handleOtherImagesChange}
-          />
-
           <label htmlFor="price">Price</label>
           <input
             type="number"
+            step="0.01"
             id="price"
             required
             value={price}
             onChange={handlePriceChange}
           />
+          <label htmlFor="quantity">Quantity</label>
+          <input
+            type="number"
+            step="0.01"
+            id="quantity"
+            required
+            value={quantity}
+            onChange={handleQuantityChange}
+          />
 
-          <input type="submit" value="MAKE THAT MONEY!" />
+          <input
+            type="submit"
+            id="add-product__submit"
+            className="button-secondary clickable"
+            disabled={processesing ? true : false}
+            value="MAKE THAT MONEY!"
+          />
         </form>
       </div>
     </div>

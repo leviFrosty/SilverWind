@@ -77,6 +77,19 @@
   color: $text-white;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
+.button-secondary-outline {
+  @include rounded();
+  padding: 0.5rem 1rem;
+  border: 1px solid $color-secondary !important;
+  background: $text-white;
+  color: $color-secondary;
+  transition: background 0.1s, color 0.1s;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.button-secondary-outline:hover {
+  background: $color-secondary;
+  color: $text-white;
+}
 
 .active {
   font-weight: 600;

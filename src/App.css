@@ -53,6 +53,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin: 1rem;
 }
 
 .admin-products {
@@ -410,14 +411,66 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: gold;
+  padding: 1rem;
+  border: none;
+  border-radius: 13px;
+  margin: 1rem 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
-.add-product__end form {
+.add-product-start {
+  margin-bottom: 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.add-product-start h1 {
+  color: #240066;
+}
+
+.add-product-start button {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  border-radius: 13px;
+}
+
+.add-product-end form {
+  width: 100%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+.add-product-end form label {
+  font-size: 1.2rem;
+  color: #240066;
+}
+
+.add-product-end form input,
+.add-product-end form textarea,
+.add-product-end form select {
+  border: none;
+  border-radius: 13px;
+  padding: 0.5rem;
+  border: 1px solid #333;
+}
+
+.add-product-end form #add-product__submit {
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.add-product__spinner {
+  height: 50px;
+  width: 50px;
 }
 
 *,
@@ -494,6 +547,24 @@ header {
   color: #fff;
   -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
           box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.button-secondary-outline {
+  border: none;
+  border-radius: 13px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #240066 !important;
+  background: #fff;
+  color: #240066;
+  -webkit-transition: background 0.1s, color 0.1s;
+  transition: background 0.1s, color 0.1s;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.button-secondary-outline:hover {
+  background: #240066;
+  color: #fff;
 }
 
 .active {
