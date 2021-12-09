@@ -25,7 +25,12 @@ export default function AdminDashboard() {
     <div className="admin-dashboard">
       <div className="admin-dashboard-start">
         <h1>Admin Dashboard</h1>
-        <button onClick={() => navigate("add")}>Add Product</button>
+        <button
+          className="clickable button-primary"
+          onClick={() => navigate("add")}
+        >
+          Add Product
+        </button>
       </div>
       <Outlet />
       <div className="admin-products">

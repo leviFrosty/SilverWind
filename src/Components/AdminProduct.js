@@ -16,13 +16,24 @@ export default function AdminProduct({ product }) {
 
   return (
     <div className="admin-product">
-      <img className="admin-product__coverImg" src={product.coverPhotoURL} />
-      <h2>{product.name}</h2>
-      <p>{product.description}</p>
-      <span>{product.price}</span>
-      <span>{product.quantity}</span>
-      <button>Edit</button>
-      <button onClick={() => handleDeleteProduct}>Delete</button>
+      <div className="admin-product-start">
+        <img className="admin-product__coverImg" src={product.coverPhotoURL} />
+        <h2 className="admin-product-title">{product.name}</h2>
+      </div>
+      <div className="admin-product-middle">
+        <p className="admin-product-description">{product.description}</p>
+      </div>
+      <div className="admin-product-end">
+        <span className="admin-product-price">{product.price}</span>
+        <span className="admin-product-quantity">{product.quantity}</span>
+        <button className="button-secondary-outline clickable">Edit</button>
+        <button
+          className="button-secondary clickable"
+          onClick={() => handleDeleteProduct}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 }

@@ -2,6 +2,14 @@
   flex-direction: column;
   margin: 1rem;
 }
+.admin-dashboard-start {
+  justify-content: space-between;
+  margin: 1rem 0;
+  h1 {
+    color: $color-secondary;
+    font-size: 1.4rem;
+  }
+}
 
 .admin-products {
   flex-direction: column;
