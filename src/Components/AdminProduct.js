@@ -1,13 +1,23 @@
+import { deleteDoc, doc, getDoc } from "@firebase/firestore";
 import { deleteObject, ref } from "@firebase/storage";
 import React from "react";
-import { storage } from "../fbInstance";
+import { db, storage } from "../fbInstance";
 
 export default function AdminProduct({ product }) {
   // TODO: Add admin product editing
   // TOOD: add product delete with storage/ product doc cleanup
   const handleDeleteProduct = async () => {
-    // await deleteObject(ref(storage, attachmentURL));
-    product.otherImagesURLs.foreach(async (url) => {
+    if (
+      window.confirm(`Are you sure you want to delete ${product.name}?`) != true
+    ) {
+      return;
+    }
+    await deleteDoc(doc(db, "products", product.id)).catch((e) =>
+      console.log(e)
+    );
+    await deleteObject(ref(storage, product.coverPhotoURL));
+    const images = Object.values(product.otherImagesURLs);
+    images.forEach(async (url) => {
       await deleteObject(ref(storage, url))
         .then(() => console.log("product deleted:", url))
         .catch((e) => console.log(e));
@@ -29,7 +39,7 @@ export default function AdminProduct({ product }) {
         <button className="button-secondary-outline clickable">Edit</button>
         <button
           className="button-secondary clickable"
-          onClick={() => handleDeleteProduct}
+          onClick={handleDeleteProduct}
         >
           Delete
         </button>

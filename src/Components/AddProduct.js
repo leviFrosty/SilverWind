@@ -1,5 +1,5 @@
-import { addDoc, collection } from "@firebase/firestore";
-import React, { useState } from "react";
+import { addDoc, collection, doc, setDoc } from "@firebase/firestore";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { db, storage } from "../fbInstance";
 import { v4 as uuidv4 } from "uuid";
@@ -9,6 +9,7 @@ import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 
 export default function AddProduct() {
   const [name, setname] = useState("");
+  const [productID, setProductID] = useState("");
   const [material, setMaterial] = useState("");
   const [description, setdescription] = useState("");
   const [price, setprice] = useState(0);
@@ -67,13 +68,13 @@ export default function AddProduct() {
     category,
     quantity,
     createdAt: Date.now(),
-    id: uuidv4(),
+    id: productID,
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setprocessing(true);
-    const dbRef = collection(db, "products");
+    const dbRef = doc(db, "products", productID);
 
     // Upload Cover Img
     const coverRef = await ref(
@@ -100,7 +101,7 @@ export default function AddProduct() {
       otherImagesURLs,
       ...productData,
     };
-    addDoc(dbRef, newProductData)
+    setDoc(dbRef, newProductData)
       .catch((e) => console.log(e))
       .then(() => {
         setprocessing(false);
@@ -162,6 +163,10 @@ export default function AddProduct() {
     });
     setotherImages(results);
   };
+
+  useEffect(() => {
+    setProductID(uuidv4());
+  }, []);
 
   return (
     <div className="add-product">
