@@ -1,0 +1,25 @@
+.category {
+  flex-direction: column;
+}
+
+.category-title {
+  max-width: fit-content;
+  flex-direction: column-reverse;
+  h1 {
+    color: $color-secondary;
+  }
+  p {
+    align-self: flex-end;
+    color: $color-primary;
+    font-weight: 600;
+    opacity: 0.5;
+  }
+  margin: 2rem 0;
+}
+.category-products {
+  display: grid !important;
+  grid-template-columns: auto auto auto auto;
+  justify-content: start;
+  gap: 20px;
+  background: red;
+}

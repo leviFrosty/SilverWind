@@ -7,13 +7,8 @@ import HomePage from "./Pages/HomePage";
 import Nav from "./Components/Nav";
 import Register from "./Pages/Profile/Register";
 import Login from "./Pages/Profile/Login";
-import Rings from "./Pages/Products/Rings";
-import Product from "./Pages/Products/Product";
-import Earrings from "./Pages/Products/Earrings";
-import Necklaces from "./Pages/Products/Necklaces";
 import NotFound from "./Pages/NotFound";
 import CustomForm from "./Pages/CustomForm";
-import Bracelets from "./Pages/Products/Bracelets";
 import AboutMe from "./Pages/AboutMe";
 import Categories from "./Pages/Products/Categories";
 import AddProduct from "./Components/AddProduct";
@@ -27,6 +22,8 @@ import Welcome from "./Pages/Welcome";
 import Forgot from "./Pages/Profile/Forgot";
 import ForgotSubmitted from "./Pages/Profile/ForgotSubmitted";
 import AdminDashboard from "./Pages/Admin/AdminDashboard";
+import CategoryProducts from "./Pages/Products/CategoryProducts";
+import Product from "./Pages/Products/Product";
 
 export default function AppRouter() {
   return (
@@ -66,19 +63,28 @@ export default function AppRouter() {
           {/* Products */}
           <Route path="products" element={<Categories />} />
 
-          <Route path="rings" element={<Rings />}>
+          <Route path="rings" element={<CategoryProducts category="rings" />}>
             <Route path=":productID" element={<Product />} />
           </Route>
 
-          <Route path="earrings" element={<Earrings />}>
+          <Route
+            path="earrings"
+            element={<CategoryProducts category="earrings" />}
+          >
             <Route path=":productID" element={<Product />} />
           </Route>
 
-          <Route path="necklaces" element={<Necklaces />}>
+          <Route
+            path="necklaces"
+            element={<CategoryProducts category="necklaces" />}
+          >
             <Route path=":productID" element={<Product />} />
           </Route>
 
-          <Route path="bracelets" element={<Bracelets />}>
+          <Route
+            path="bracelets"
+            element={<CategoryProducts category="bracelets" />}
+          >
             <Route path=":productID" element={<Product />} />
           </Route>
           {/* End Products */}

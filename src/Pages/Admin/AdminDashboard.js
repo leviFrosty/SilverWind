@@ -1,5 +1,4 @@
-import { collection, getDocs, onSnapshot, query } from "@firebase/firestore";
-import { list } from "@firebase/storage";
+import { collection, onSnapshot, query } from "@firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router";
 import AdminProduct from "../../Components/AdminProduct";
