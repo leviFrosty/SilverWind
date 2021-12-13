@@ -52,6 +52,25 @@ a {
 }
 
 // Global Styles
+.form {
+  flex-direction: column;
+  label {
+    color: $color-secondary-transparent;
+    margin-bottom: 3px;
+  }
+  select,
+  input {
+    margin-bottom: 14px;
+    border-radius: 10px;
+    padding: 0.3rem 0.5rem;
+    border: none;
+    outline: 2px solid $color-secondary-transparent;
+  }
+  input:focus {
+    outline: 2px solid $color-primary;
+  }
+}
+
 .full-screen-height {
   height: 100vh;
 }
@@ -84,11 +103,13 @@ a {
   padding: 0.5rem 1rem;
   background: $color-secondary;
   color: $text-white;
+  justify-content: center;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 .button-secondary:hover {
   background: $text-white;
   color: $color-secondary;
+  outline: 1px solid $color-secondary;
   cursor: pointer;
 }
 .button-secondary-outline {

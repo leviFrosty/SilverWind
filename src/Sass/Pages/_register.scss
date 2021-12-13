@@ -2,20 +2,18 @@
   flex-direction: column;
   margin: 3rem 0;
 }
-
-.register-form {
-  width: 500px;
-  flex-direction: column;
-}
-
 .register-title {
   color: $color-secondary;
+  margin-bottom: 2rem;
+  justify-content: center;
 }
 
 .register__description {
   display: inline !important;
   color: $color-secondary;
   overflow-wrap: break-word;
+  max-width: 360px;
+  margin-bottom: 1rem;
 }
 .register__legalLinks {
   text-decoration: underline;

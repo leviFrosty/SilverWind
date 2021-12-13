@@ -73,11 +73,12 @@ const Register = () => {
   };
 
   return (
-    <div className="register container">
+    <div className="register">
       <h1 className="register-title">Create an Account</h1>
-      <form className="register-form" onSubmit={handleFormSubmit}>
+      <form className="form" onSubmit={handleFormSubmit}>
         <label htmlFor="firstName">first name</label>
         <input
+          autoFocus
           required
           type="text"
           name="first name"
@@ -141,7 +142,11 @@ const Register = () => {
           </Link>
           .
         </p>
-        <input type="submit" value="Create Account" />
+        <input
+          className="button-secondary"
+          type="submit"
+          value="Create Account"
+        />
       </form>
       <p>
         Already registered? <Link to="/login">Log in</Link>

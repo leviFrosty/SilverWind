@@ -14,6 +14,7 @@
 
 .login-title {
   color: #240066;
+  margin: 2rem 0;
 }
 
 .register {
@@ -24,22 +25,20 @@
   margin: 3rem 0;
 }
 
-.register-form {
-  width: 500px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
 .register-title {
   color: #240066;
+  margin-bottom: 2rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .register__description {
   display: inline !important;
   color: #240066;
   overflow-wrap: break-word;
+  max-width: 360px;
+  margin-bottom: 1rem;
 }
 
 .register__legalLinks {
@@ -955,6 +954,31 @@ a {
           flex-grow: 2;
 }
 
+.form {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form label {
+  color: rgba(36, 0, 102, 0.7);
+  margin-bottom: 3px;
+}
+
+.form select,
+.form input {
+  margin-bottom: 14px;
+  border-radius: 10px;
+  padding: 0.3rem 0.5rem;
+  border: none;
+  outline: 2px solid rgba(36, 0, 102, 0.7);
+}
+
+.form input:focus {
+  outline: 2px solid #9c69ff;
+}
+
 .full-screen-height {
   height: 100vh;
 }
@@ -992,6 +1016,9 @@ a {
   padding: 0.5rem 1rem;
   background: #240066;
   color: #fff;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
           box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
@@ -999,6 +1026,7 @@ a {
 .button-secondary:hover {
   background: #fff;
   color: #240066;
+  outline: 1px solid #240066;
   cursor: pointer;
 }
 

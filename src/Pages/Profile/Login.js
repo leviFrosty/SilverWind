@@ -44,9 +44,11 @@ export default function Login() {
   return (
     <div className="login">
       <h1 className="login-title">Log into SilverWind</h1>
-      <form className="login" onSubmit={handleFormSubmit}>
+      <form className="form" onSubmit={handleFormSubmit}>
         <label htmlFor="email">email</label>
         <input
+          className="form-input"
+          autoFocus
           type="email"
           required
           name="email"
@@ -57,6 +59,7 @@ export default function Login() {
         />
         <label htmlFor="password">password</label>
         <input
+          className="form-input"
           type="password"
           required
           minLength="8"
@@ -67,7 +70,11 @@ export default function Login() {
           value={password}
           onChange={handlePasswordChange}
         />
-        <input type="submit" value="Log in" />
+        <input
+          className="form-input button-secondary"
+          type="submit"
+          value="Log in"
+        />
       </form>
       <Link to="/forgot">I've forgotten my password</Link>
       <p>New to SilverWind?</p>
