@@ -1,0 +1,141 @@
+.product-title {
+  margin-left: 150px;
+}
+
+.product-details {
+  align-items: flex-start;
+  flex-direction: column;
+  position: relative;
+}
+
+.product-start {
+  flex-direction: row-reverse;
+  max-width: 50vw;
+  padding: 0 2rem;
+
+  .preview {
+    margin-left: 10px;
+    height: 500px;
+    width: 600px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  }
+  .preview:hover {
+    cursor: pointer;
+  }
+  .preview img {
+    width: 100%;
+    object-fit: contain;
+  }
+  .preview-items {
+    flex-direction: column;
+  }
+  .preview-items img {
+    height: 100px;
+    object-fit: cover;
+  }
+  .preview-items img:hover {
+    cursor: pointer;
+  }
+}
+
+.product-end {
+  flex-direction: column;
+  max-width: 500px;
+  .product-numbers {
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 2px solid $color-primary-transparent;
+    .product__price {
+      color: $color-secondary;
+      font-size: 1.3rem;
+      font-weight: 700;
+      align-items: center;
+    }
+    .product__quantity {
+      align-items: center;
+      justify-content: space-between;
+      svg {
+        width: 1.3rem;
+        height: 1.3rem;
+      }
+      svg path {
+        fill: $color-secondary;
+      }
+      p {
+        margin-left: 10px;
+        color: $color-secondary;
+        white-space: nowrap;
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+    }
+  }
+  .product-highlights {
+    flex-direction: column;
+    margin: 2rem 0;
+    span svg {
+      margin: 5px 0;
+      height: 1rem;
+      width: fit-content;
+      margin-right: 10px;
+    }
+    span {
+      align-items: center;
+      justify-content: center;
+      color: $color-secondary;
+    }
+  }
+  .product-cta {
+    flex-direction: column;
+    button {
+      font-size: 1.4rem;
+      font-weight: 700;
+      justify-content: center;
+    }
+  }
+  .product-logistics {
+    border: 1px solid $color-secondary;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 2rem;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    margin: 2rem 0;
+    span {
+      font-weight: 600;
+      color: $color-secondary;
+    }
+    span svg {
+      margin-right: 10px;
+    }
+    p {
+      color: $color-secondary;
+      line-height: 1.4rem;
+    }
+  }
+  .product-description p {
+    color: $color-secondary;
+    line-height: 1.4rem;
+  }
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.modal-close {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  width: 30px;
+}
+.modal-close path {
+  fill: $color-secondary;
+}
+.modal-close:hover {
+  cursor: pointer;
+}

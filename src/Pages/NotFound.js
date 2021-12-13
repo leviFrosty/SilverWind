@@ -6,7 +6,7 @@ export default function NotFound() {
 
   return (
     <div>
-      <h1>You look lost.</h1>
+      <h1>There's nothing here!</h1>
       <button
         onClick={() => {
           navigate(-1);

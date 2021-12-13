@@ -1,5 +1,6 @@
 .category {
   flex-direction: column;
+  min-width: 1160px;
 }
 
 .category-title {
@@ -14,12 +15,11 @@
     font-weight: 600;
     opacity: 0.5;
   }
-  margin: 2rem 0;
+  margin: 2rem 0 2rem 5rem;
 }
 .category-products {
   display: grid !important;
   grid-template-columns: auto auto auto auto;
   justify-content: start;
   gap: 20px;
-  background: red;
 }

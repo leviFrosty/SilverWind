@@ -9,6 +9,7 @@
 @import "./Sass/Pages/AdminDashboard";
 @import "./Sass/Pages/RequireAdmin";
 @import "./Sass/Pages/CategoryProducts";
+@import "./Sass/Pages/ProductDetails";
 // Components
 @import "./Sass/Components/nav";
 @import "./Sass/Components/hero";
@@ -29,6 +30,9 @@
 }
 #root * {
   display: flex;
+}
+a {
+  text-decoration: none;
 }
 
 // App formatting
@@ -80,6 +84,11 @@
   background: $color-secondary;
   color: $text-white;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.button-secondary:hover {
+  background: $text-white;
+  color: $color-secondary;
+  cursor: pointer;
 }
 .button-secondary-outline {
   @include rounded();

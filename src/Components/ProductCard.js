@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import ProductHeart from "./ProductHeart";
 import Spinner from "./Spinner";
 
 export default function ProductCard({ product }) {
-  const [loading, setloading] = useState(true);
+  const navigate = useNavigate();
 
   return (
-    <div className="product-card">
+    <div
+      onClick={() => navigate(`/products/${product.id}`)}
+      className="product-card"
+    >
       {product.coverPhotoURL !== null ? (
         <img src={product.coverPhotoURL} alt={product.name} />
       ) : (

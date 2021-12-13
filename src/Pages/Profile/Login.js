@@ -2,12 +2,13 @@ import { signInWithEmailAndPassword } from "@firebase/auth";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../../fbInstance";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   let navigate = useNavigate();
+  const location = useLocation();
 
   const handleEmailChange = (event) => {
     const {
@@ -22,10 +23,21 @@ export default function Login() {
     setPassword(value);
   };
 
+  const handleNavigate = () => {
+    if (location.state === null) {
+      navigate("/profile", { replace: true });
+      return;
+    }
+    navigate(location.state.redirectTo, {
+      replace: true,
+      state: { productToAdd: location.state.productToAdd },
+    });
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
-      .then(() => navigate("/profile", { replace: true }))
+      .then(() => handleNavigate())
       .catch((error) => console.log(error));
   };
 

@@ -10,7 +10,6 @@ import Login from "./Pages/Profile/Login";
 import NotFound from "./Pages/NotFound";
 import CustomForm from "./Pages/CustomForm";
 import AboutMe from "./Pages/AboutMe";
-import Categories from "./Pages/Products/Categories";
 import AddProduct from "./Components/AddProduct";
 import Profile from "./Pages/Profile/Profile";
 import EditProfile from "./Pages/Profile/EditProfile";
@@ -23,7 +22,7 @@ import Forgot from "./Pages/Profile/Forgot";
 import ForgotSubmitted from "./Pages/Profile/ForgotSubmitted";
 import AdminDashboard from "./Pages/Admin/AdminDashboard";
 import CategoryProducts from "./Pages/Products/CategoryProducts";
-import Product from "./Pages/Products/Product";
+import ProductDetails from "./Pages/Products/ProductDetails";
 
 export default function AppRouter() {
   return (
@@ -61,32 +60,26 @@ export default function AppRouter() {
           {/* End Admin */}
 
           {/* Products */}
-          <Route path="products" element={<Categories />} />
-
-          <Route path="rings" element={<CategoryProducts category="rings" />}>
-            <Route path=":productID" element={<Product />} />
+          <Route path="products">
+            <Route path=":id" element={<ProductDetails />} />
           </Route>
+
+          <Route path="rings" element={<CategoryProducts category="rings" />} />
 
           <Route
             path="earrings"
             element={<CategoryProducts category="earrings" />}
-          >
-            <Route path=":productID" element={<Product />} />
-          </Route>
+          />
 
           <Route
             path="necklaces"
             element={<CategoryProducts category="necklaces" />}
-          >
-            <Route path=":productID" element={<Product />} />
-          </Route>
+          />
 
           <Route
             path="bracelets"
             element={<CategoryProducts category="bracelets" />}
-          >
-            <Route path=":productID" element={<Product />} />
-          </Route>
+          />
           {/* End Products */}
 
           <Route path="*" element={<NotFound />} />
