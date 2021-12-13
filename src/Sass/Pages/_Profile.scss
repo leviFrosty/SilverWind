@@ -1,0 +1,25 @@
+.profile {
+  flex-direction: column;
+  width: 1140px;
+  max-width: 1140px;
+}
+
+.profile-start {
+  justify-content: space-between;
+}
+
+.take-me-back {
+  text-decoration: underline;
+  border: none;
+  background: none;
+  color: $color-secondary;
+}
+.take-me-back:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.profile__header {
+  color: $color-secondary;
+  flex-grow: 1;
+}

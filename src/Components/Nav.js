@@ -21,7 +21,7 @@ export default function Nav() {
           </div>
           <div className="nav-links">
             <NavLink to="about-me" className="clickable">
-              about me
+              about us
             </NavLink>
             <NavLink to="portfolio" className="clickable">
               portfolio

@@ -37,13 +37,19 @@ export default function Profile() {
   };
 
   return (
-    <div>
-      <button onClick={() => navigate(-1)}>Take me Back</button>
-      <h1>Hello {userData.firstName}</h1>
+    <div className="profile">
+      <div className="profile-start">
+        <h1 className="profile__header">Hello {userData.firstName}</h1>
+        <button className="take-me-back" onClick={() => navigate(-1)}>
+          Take me back
+        </button>
+      </div>
       {userData.isAdmin ? (
         <Link to="/admin/dashboard">Admin Portal</Link>
       ) : null}
-      <button onClick={handleSignOut}>Sign Out</button>
+      <button className="button-secondary-outline" onClick={handleSignOut}>
+        Sign Out
+      </button>
     </div>
   );
 }
